@@ -153,31 +153,24 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="hardwareTab">
        <attribute name="title">
         <string>Hardware</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_2">
+        <item row="9" column="1">
+         <widget class="QLabel" name="label_22">
           <property name="text">
-           <string>Digital Out Device</string>
+           <string>Carrier flow out device</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLineEdit" name="analogInDevEdit">
+        <item row="10" column="0">
+         <widget class="QCheckBox" name="carrierControlBox">
           <property name="text">
-           <string>dev2/ai4</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="digitalChannelsEdit">
-          <property name="text">
-           <string>4</string>
+           <string>Control carrier flow</string>
           </property>
          </widget>
         </item>
@@ -188,10 +181,17 @@
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
-         <widget class="QLabel" name="analogChannelsLabel">
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="digitalChannelsEdit">
           <property name="text">
-           <string>Analog Channels</string>
+           <string>4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLineEdit" name="analogInDevEdit">
+          <property name="text">
+           <string>dev2/ai4</string>
           </property>
          </widget>
         </item>
@@ -237,10 +237,45 @@
           </property>
          </widget>
         </item>
+        <item row="2" column="1">
+         <widget class="QLabel" name="analogChannelsLabel">
+          <property name="text">
+           <string>Analog Channels</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>Trigger In Source</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Digital Out Device</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="triggerInEdit">
+          <property name="text">
+           <string>cDAQ1Mod2/ai3</string>
+          </property>
+         </widget>
+        </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_3">
           <property name="text">
            <string>Analog Input Device</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QLineEdit" name="carrierDeviceEdit">
+          <property name="text">
+           <string>dev2/port0/line5</string>
           </property>
          </widget>
         </item>
@@ -256,20 +291,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item row="4" column="1">
-         <widget class="QLabel" name="label_9">
-          <property name="text">
-           <string>Trigger In Source</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="1">
-         <widget class="QLineEdit" name="triggerInEdit">
-          <property name="text">
-           <string>cDAQ1Mod2/ai3</string>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>

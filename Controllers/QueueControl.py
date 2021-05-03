@@ -38,6 +38,11 @@ class QueueWorker(QtCore.QObject):
                                                       global_params['global_offset'],
                                                       trial_params, invert_chan_list=invert_valves)
 
+                if hardware_params['control_carrier']:
+                    while len(pulses) < hardware_params['digital_channels']:
+                        pulses = np.append(pulses, np.zeros((1, pulses.shape[1])), axis=0)
+                    carrier_control = np.append(np.ones(pulses.shape[1]-0), np.zeros(0))
+                    pulses = np.append(pulses, carrier_control[np.newaxis], axis=0)
                 # in standard configuration we want to run each trial sequentially
                 if not self.parent.trigger_state():
                     if hardware_params['analog_channels'] > 0:
@@ -51,9 +56,9 @@ class QueueWorker(QtCore.QObject):
                         self.trial_daq = daq.DoCoTask(hardware_params['digital_dev'], '', hardware_params['samp_rate'],
                                                       len(t) / hardware_params['samp_rate'], pulses)
                         self.trial_daq.DoTask()
-                        close_valves= daq.DoCoTask(hardware_params['digital_dev'], '', hardware_params['samp_rate'],
-                                                      len(t) / hardware_params['samp_rate'], np.zeros((len(pulses), 10)))
-                        close_valves.DoTask()
+                        # close_valves= daq.DoCoTask(hardware_params['digital_dev'], '', hardware_params['samp_rate'],
+                        #                               len(t) / hardware_params['samp_rate'], np.zeros((len(pulses), 10)))
+                        # close_valves.DoTask()
                         self.analog_data = []
                 # unless the 'wait for trigger' box is checked, in which case we want to wait for our trigger in
                 else:
@@ -68,7 +73,8 @@ class QueueWorker(QtCore.QObject):
 
                         self.analog_data = self.trial_daq.DoTask()
                     else:
-                        self.trial_daq= daq.DoTriggeredCoTask(hardware_params['digital_dev'], '', hardware_params['samp_rate'], len(t) / hardware_params['samp_rate'], pulses, hardware_params['trigger_source'])
+                        self.trial_daq= daq.DoTriggeredCoTask(hardware_params['digital_dev'], '', hardware_params['samp_rate'], len(t) / hardware_params['samp_rate'],
+                                                              pulses, hardware_params['trigger_source'])
                         self.trial_daq.DoTask()
                         self.analog_data = []
 

@@ -250,6 +250,8 @@ class MainApp(QtWidgets.QMainWindow, mainDesign.Ui_MainWindow):
         params['sync_clock'] = self.syncClockEdit.text()
         params['samp_rate'] = float(self.sampRateEdit.text())
         params['trigger_source'] = self.triggerInEdit.text()
+        params['control_carrier'] = self.carrierControlBox.isChecked()
+#        params['carrier_chan'] = int(self.carrierDeviceEdit.text())
 
         return params
 

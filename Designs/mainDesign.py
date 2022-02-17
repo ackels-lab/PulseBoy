@@ -538,7 +538,7 @@ class Ui_MainWindow(object):
         self.actionSave_Configuration.setText(_translate("MainWindow", "Save Configuration"))
 
 from pyqtgraph import PlotWidget
-
+import sys
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

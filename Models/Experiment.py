@@ -133,7 +133,7 @@ class ExperimentModel(QtCore.QAbstractTableModel):
             out_shuffle_back = list(self.arraydata[-shuffle_back_offset:])
         
         print(len(out_shuffle_back), shuffle_back_offset)
-        shuffle_indexes = np.arange((math.ceil(len(self.arraydata)-shuffle_offset-shuffle_back_offset)/shuffle_group_size))*shuffle_group_size+shuffle_offset+shuffle_back_offset
+        shuffle_indexes = np.arange((math.ceil(len(self.arraydata)-shuffle_offset-shuffle_back_offset)/shuffle_group_size))*shuffle_group_size+shuffle_offset
         random.shuffle(shuffle_indexes)
         for i in shuffle_indexes:
             for j in range(shuffle_group_size):

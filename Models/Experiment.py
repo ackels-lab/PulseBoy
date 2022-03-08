@@ -127,6 +127,9 @@ class ExperimentModel(QtCore.QAbstractTableModel):
         shuffle_offset = global_params['shuffle_offset']
         shuffle_back_offset = global_params['shuffle_back_offset']
         shuffle_group_size = global_params['shuffle_group_size']
+        if shuffle_offset + shuffle_back_offset > len(self.arraydata):
+            shuffle_offset = math.ceil(len(self.arraydata)/2)
+            shuffle_back_offset = math.floor(len(self.arraydata)/2)
         out_shuffle = list(self.arraydata[:shuffle_offset])
         out_shuffle_back = []
         if shuffle_back_offset > 0:

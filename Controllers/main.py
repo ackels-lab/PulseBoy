@@ -1,7 +1,8 @@
 import sys
-sys.path.append('C:\\Users\\warnert\\Documents\\GitHub')
-sys.path.append('C:\\Users\\warnert\\Documents\\GitHub\\PulseBoy_updated\\PulseBoy')
-sys.path.append('C:\\Users\\warnert\\Documents\\GitHub\\PulseBoy')
+sys.path.append('C:\\Users\\ackel\\TempCOdE\\Github')
+#sys.path.append('C:\\Users\\warnert\\Documents\\GitHub\\PulseBoy_updated\\PulseBoy')
+sys.path.append('C:\\Users\\ackel\\TempCOdE\\Github\\PulseBoy')
+sys.path.append('C:\\Users\\ackel\\TempCOdE\\Github\\PyPulse')
 
 from PyPulse import PulseInterface
 import numpy as np
@@ -11,10 +12,10 @@ from Controllers import QueueControl, QueueControl
 from multiprocessing import Queue, Process, Manager
 from Designs import mainDesign
 from Models import PBWidgets
-try:
-    from vipulse import StreamNSave
-except ImportError:
-    print('No camera!')
+#try:
+    #from vipulse import StreamNSave
+#except ImportError:
+   # print('No camera!')
 import pickle as pickle
 import os.path
 import daqface.DAQ as daq
@@ -213,6 +214,7 @@ class MainApp(QtWidgets.QMainWindow, mainDesign.Ui_MainWindow):
         print(fname)
         self.trialBankModel.load_arraydata(fname)
         self.queue_controller.trial_list = self.trialBankModel.arraydata
+        TrialBankName = fname #Trying to save trialbank name as a variable
 
     def save_config_data(self):
         config = {'hardware_params': self.get_hardware_params(),
@@ -322,6 +324,9 @@ class MainApp(QtWidgets.QMainWindow, mainDesign.Ui_MainWindow):
                                                       global_params['global_onset'],
                                                       global_params['global_offset'],
                                                       trial_params[1])
+            
+
+            #Add timestamp as prefix to the file name
             save_string = export_params['export_path'] + trial_params[-1] + '_'+export_params['pulse_suffix'] + '.npy'
             np.save(save_string, pulses)
             all_pulses[trial_params[-1]] = pulses

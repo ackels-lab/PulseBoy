@@ -1,0 +1,120 @@
+13:14:18
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:15:00
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:25:24
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:26:32
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:29:21
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:29:48
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:30:03
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:30:33
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:30:49
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:31:00
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:31:53
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:32:19
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:33:15
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:44:44
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:53:52
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:55:45
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:58:01
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:58:30
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:58:45
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered
+13:59:13
+10 Hz Blank
+5 Hz Blank
+5 Hz EB
+10 Hz EB
+10 Hz Blank_Triggered

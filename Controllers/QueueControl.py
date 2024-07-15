@@ -5,6 +5,7 @@ from PyPulse import PulseInterface
 import scipy.io as sio
 import numpy as np
 from datetime import datetime
+import os
 
 
 class QueueWorker(QtCore.QObject):
@@ -80,23 +81,34 @@ class QueueWorker(QtCore.QObject):
 
                 # Save data
                 if export_params['save_pulses']:
-                    save_string = export_params['export_path'] + str(self.experiment.current_trial) + \
-                                  export_params['pulse_suffix'] + '.mat'
-                    sio.savemat(save_string, {'analog_data': self.analog_data, 'pulses': pulses, 't': t})
-
-
+                    date = datetime.today().strftime('%Y%m%d')
+                    time = datetime.today().strftime('%H%M%S')
+                    trialName = self.experiment.arraydata[self.experiment.current_trial][2]
+                    
+                    if self.experiment.current_trial == 0:
+                        trialbankName = export_params['trialbankName']
+                        # Adding timestamp to the directory name (trialbankName -> dateTime_trialbankName)
+                        newTrialbankName = date+'T'+time+'_'+trialbankName
+                        newExportPath = export_params['export_path']+'\\'+newTrialbankName
+                        pulses_path = os.path.join(newExportPath, 'pulses')
+                        os.makedirs(pulses_path, exist_ok=True)
+                    date = datetime.today().strftime('%Y%m%d')
+                    time = datetime.today().strftime('%H%M%S')
+                    save_string =pulses_path + '\\' + date + 'T' + time + '_' + str(trialName) + '.mat'
+                    sio.savemat(save_string, {'pulses': pulses, 't': t})
+                    #sio.savemat(save_string, {'analog_data': self.analog_data, 'pulses': pulses, 't': t})
+                
+                if export_params['save_names']:
+                    #names = [i[-1] for i in self.experiment.arraydata] --> this creates a text file at the end of a trialbank, not used anymore |15.07.2024
+                    trials_path = os.path.join(newExportPath, 'trials')
+                    os.makedirs(trials_path, exist_ok=True) 
+                    f = open(trials_path+'\\'+ date + 'T' + time + '_' + str(trialName) + '.txt', 'a')
+                    f.write(date+'T'+time)
+                    f.write('\n')
+                    f.write(trialName)
+                    f.close()
                 if self.experiment.total_trials() - self.experiment.current_trial == 1:
                     self.experiment.reset_trials()
-                    if export_params['save_names']:
-                        names = [i[-1] for i in self.experiment.arraydata]
-                        date = datetime.today().strftime('%Y-%m-%d')
-                        time = datetime.today().strftime('%H:%M:%S')
-                        f = open(export_params['export_path']+date+export_params['trial_suffix']+'.txt', 'a')
-                        f.write(time)
-                        f.write('\n')
-                        f.write('\n'.join(names))
-                        f.write('\n')
-                        f.close()
                     self.parent.repeats_done += 1
                     print('repeats done ', self.parent.repeats_done)
                     if self.parent.repeats_done == global_params['repeats']:

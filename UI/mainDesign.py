@@ -445,7 +445,7 @@ class Ui_MainWindow(object):
         self.digitalOutDevEdit.setText(_translate("MainWindow", "dev2/port0/line0:3"))
         self.digitalChannelsEdit.setText(_translate("MainWindow", "4"))
         self.analogInDevEdit.setText(_translate("MainWindow", "dev2/ai4"))
-        self.analogChannelsEdit.setText(_translate("MainWindow", "1"))
+        self.analogChannelsEdit.setText(_translate("MainWindow", "0")) # Keep 'Analog Channels' to zero if not using analog inputs
         self.label_5.setText(_translate("MainWindow", "Sampling Rate"))
         self.label_11.setText(_translate("MainWindow", "Synchronisation Clock"))
         self.syncClockEdit.setText(_translate("MainWindow", "/dev2/ai/SampleClock"))

@@ -214,7 +214,10 @@ class MainApp(QtWidgets.QMainWindow, mainDesign.Ui_MainWindow):
         print(fname)
         self.trialBankModel.load_arraydata(fname)
         self.queue_controller.trial_list = self.trialBankModel.arraydata
-        TrialBankName = fname #Trying to save trialbank name as a variable
+        trialbankName = os.path.split(os.path.abspath(fname))[1]
+        self.trialbankName = trialbankName.split('.')[0]
+        #self.queue_controller.trialbank_name = fname #Trying to save trialbank name as a variable
+        
 
     def save_config_data(self):
         config = {'hardware_params': self.get_hardware_params(),
@@ -285,7 +288,7 @@ class MainApp(QtWidgets.QMainWindow, mainDesign.Ui_MainWindow):
         params['export_path'] = str(self.exportPathEdit.text())
         params['pulse_suffix'] = str(self.pulseSuffixEdit.text())
         params['trial_suffix'] = str(self.trialNameSuffixEdit.text())
-
+        params['trialbankName'] = str(self.trialbankName) #getting trialbank name as a key-value pair
         return params
 
     def set_export_path(self):
